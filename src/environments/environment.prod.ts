@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiOdorem:"https://localhost:7175/"
+
 };
