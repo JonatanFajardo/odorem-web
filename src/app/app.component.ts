@@ -13,6 +13,8 @@ export class AppComponent {
    *
    */
   productos: any;
+  public page!:number;
+  
   constructor(
     private productosService: ProductosService
     ) {
