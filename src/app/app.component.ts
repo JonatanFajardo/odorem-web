@@ -12,24 +12,8 @@ export class AppComponent {
   /**
    *
    */
-  productos: any;
-  public page!:number;
+
   
-  constructor(
-    private productosService: ProductosService
-    ) {
-    this.ObtenerProductosCards();
-  }
-  
-  ObtenerProductosCards(){
-    // debugger
-    this.productosService.ObtenerProductosCards().subscribe(
-      (datos)=>{
-        this.productos = datos;
-        console.log(this.productos);
-      }
-    );
- }
   title = 'odorem-web';
   algo(){
 

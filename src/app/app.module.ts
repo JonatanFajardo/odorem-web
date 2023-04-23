@@ -10,12 +10,15 @@ import { DxButtonModule } from 'devextreme-angular';
 import { SigninComponent } from './auth/signin/signin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     // DxButtonModule,
     HttpClientModule,
     NgOptimizedImage,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
     // NgxPaginationModule
     // DevExtremeMole
   ],

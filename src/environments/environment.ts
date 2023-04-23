@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiOdorem:"https://localhost:7175/"
+  apiOdorem:"https://localhost:7175/api/"
 };
 
 /*
