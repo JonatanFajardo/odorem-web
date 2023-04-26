@@ -12,13 +12,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { FormsModule } from '@angular/forms';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductCardV2Component } from './components/product-card-v2/product-card-v2.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+// import { LocalStorageService } from 'angular-web-storage';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SigninComponent,
-    ProductosComponent
+    ProductosComponent,
+    ProductCardComponent,
+    ProductCardV2Component,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -27,11 +35,17 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     NgOptimizedImage,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
     // NgxPaginationModule
+    // LocalStorageModule.forRoot({
+    //   prefix: 'my-app',
+    //   storageType: 'localStorage'
+    // })
     // DevExtremeMole
   ],
-  providers: [],
+  providers: [ 
+    // LocalStorageService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

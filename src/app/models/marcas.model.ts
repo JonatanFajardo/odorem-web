@@ -1,6 +1,7 @@
-export interface Marcas { 
-    marc_Id: number;
-    marc_Nombre: string;
-    //local
-    checked:boolean;
+export interface Marcas {
+  marc_Id: number;
+  marc_Nombre: string;
+  marc_cantidad: number;
+  //local
+  checked: boolean;
 }

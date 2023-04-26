@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "angular-crumbs": "^3.0.1",
+    "angular-web-storage": "^15.0.0",
     "bootstrap": "^5.2.3",
     "devextreme": "22.1.6",
     "devextreme-angular": "22.1.6",

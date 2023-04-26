@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Productos } from 'src/app/models/Productos';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 
@@ -43,6 +44,12 @@ export class ProductosComponent implements OnInit {
         (marca: any) => marca.checked && producto.marc_Id === marca.marc_Id
       );
     });
+  }
+  pageChange($event:any){
+    this.page = $event
+    window.onload = () => {
+      window.scrollTo(0, 0);
+    }
   }
 
   ngOnInit(): void {}
