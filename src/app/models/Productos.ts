@@ -1,6 +1,7 @@
 export interface Productos {
   prod_Id: number;
   prod_Nombre: string;
+  prod_Description: string;
   prod_Precio: number;
   prod_LinkDocumento: string;
   prod_Documento: string | null;

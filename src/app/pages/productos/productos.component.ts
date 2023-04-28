@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Productos } from 'src/app/models/Productos';
 import { MarcaService } from 'src/app/services/marca.service';
 import { ProductosService } from 'src/app/services/productos/productos.service';
@@ -15,8 +16,9 @@ export class ProductosComponent implements OnInit {
   productosFiltrados: any;
 
   constructor(
+    private router:Router,
     private productosService: ProductosService,
-    private marcasService: MarcaService
+    private marcasService: MarcaService,
   ) {
     this.ObtenerProductosCards();
     this.ObtenerMarcas();
@@ -51,6 +53,8 @@ export class ProductosComponent implements OnInit {
       window.scrollTo(0, 0);
     }
   }
-
+  redirectToProductosDetalle(id:number){
+    this.router.navigateByUrl("productos-detalle/"+id)
+  }
   ngOnInit(): void {}
 }

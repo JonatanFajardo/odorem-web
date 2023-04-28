@@ -15,4 +15,9 @@ export class ProductosService {
   public ObtenerProductosCards():Observable<Productos[]>{
     return this.http.get<Productos[]>(`${environment.apiOdorem}Productos/obtenerProductosCards`).pipe(map(data=>data as Productos[]));
   }
+
+  public buscarProductos(id:number):Observable<Productos>{
+    const url = `${environment.apiOdorem}Productos/BuscarProductos/${id}`;
+    return this.http.get<Productos>(url).pipe(map(data=>data as Productos));
+  }
 }

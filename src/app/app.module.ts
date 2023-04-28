@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductCardV2Component } from './components/product-card-v2/product-card-v2.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { ProductosDetalleComponent } from './pages/productos/productos-detalle/productos-detalle.component';
 // import { LocalStorageService } from 'angular-web-storage';
 
 
@@ -26,7 +27,8 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     ProductosComponent,
     ProductCardComponent,
     ProductCardV2Component,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductosDetalleComponent
   ],
   imports: [
     BrowserModule,
