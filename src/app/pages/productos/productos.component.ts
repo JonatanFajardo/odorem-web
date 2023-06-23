@@ -13,10 +13,10 @@ export class ProductosComponent implements OnInit {
   precioMinimo = 0;
   precioMaximo = 10000;
 
-  productos: any;
+  productos: Productos[] = [];
   public page!: number;
   marcas: any;
-  productosFiltrados: any;
+  productosFiltrados: Productos[] = [];
 
   constructor(
     private router: Router,
@@ -26,28 +26,28 @@ export class ProductosComponent implements OnInit {
     this.ObtenerProductosCards();
     this.ObtenerMarcas();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   ObtenerProductosCards() {
     this.productosService.ObtenerProductosCards().subscribe((datos) => {
       this.productos = datos;
       this.productosFiltrados = datos;
-      console.log(this.productos);
     });
   }
 
   ObtenerMarcas() {
     this.marcasService.ObtenerMarcas().subscribe((datos) => {
       this.marcas = datos;
-      console.log(this.marcas);
     });
   }
   
   filtrarProductos() {
     this.productosFiltrados = this.productos.filter(
       (producto: any) =>
-        producto.prod_Precio >= this.precioMinimo &&
-        producto.prod_Precio <= this.precioMaximo
+        producto.Precio >= this.precioMinimo &&
+        producto.Precio <= this.precioMaximo
     );
 
     // Verifica si alguna marca está seleccionada
@@ -64,7 +64,7 @@ export class ProductosComponent implements OnInit {
         }
         // Si hay marcas seleccionadas, filtra solo los productos que corresponden a esas marcas
         return this.marcas.some(
-          (marca: any) => marca.checked && producto.marc_Id === marca.marc_Id
+          (marca: any) => marca.checked && producto.Id === marca.Id
         );
       }
     );
@@ -79,6 +79,6 @@ export class ProductosComponent implements OnInit {
   }
 
   redirectToProductosDetalle(id: number) {
-    this.router.navigateByUrl('productos-detalle/' + id);
+    this.router.navigateByUrl('/productos-detalle/' + id);
   }
 }

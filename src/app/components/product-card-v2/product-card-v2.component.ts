@@ -16,7 +16,7 @@ export class ProductCardV2Component implements OnInit {
   @Input() imageUrl: string="";
   @Input() title: string="";
   @Input() precio: number=0;
-  @Input() producto: any;
+  @Input() producto: Productos = new Productos();
 
   loading = true;
 
@@ -29,8 +29,8 @@ export class ProductCardV2Component implements OnInit {
   
   addToCart(producto:Productos){
     // let Productos:Productos={
-    //   prod_Id:1,
-    //   prod_Nombre:
+    //   Id:1,
+    //   Nombre:
     // }
     // let cart = JSON.parse(localStorage.getItem('titulo',title));
 // cart.push(producto);

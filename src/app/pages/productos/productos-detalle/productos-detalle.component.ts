@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Productos } from 'src/app/models/Productos';
+import { ProductoDetalleDto } from 'src/app/models/producto-detalle';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 
 @Component({
@@ -10,13 +11,13 @@ import { ProductosService } from 'src/app/services/productos/productos.service';
 })
 export class ProductosDetalleComponent implements OnInit {
  
-  constructor(private route: ActivatedRoute, private productosServices: ProductosService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private productosServices: ProductosService) { }
 
-  productos: any;
+  productos: ProductoDetalleDto = new ProductoDetalleDto();
+  ProductosSimilares : Productos[] = [];
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = params['id'];
-      console.log(id); // imprime el valor de id
       this.buscarProductos(id);
     });
   }
@@ -24,8 +25,18 @@ export class ProductosDetalleComponent implements OnInit {
   buscarProductos(id:number){
     this.productosServices.buscarProductos(id).subscribe((datos) => {
       this.productos = datos;
-      console.log(this.productos);
+      this.ObtenerProductosSimilares(this.productos.idTipoFragancia);
     });
   }
 
+  ObtenerProductosSimilares(id:number){
+    let cantidad = 4;
+    this.productosServices.ObtenerProductosSimilares(id, cantidad).subscribe((datos) => {
+      this.ProductosSimilares = datos;
+    });
+  }
+
+  redirectToProductosDetalle(id: number) {
+    this.router.navigateByUrl('/productos-detalle/' + id);
+  }
 }

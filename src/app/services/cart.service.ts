@@ -13,7 +13,7 @@ export class CartService {
   addToCart(producto: Productos) {
     let productoList:Productos[] = JSON.parse(localStorage.getItem(this.propertyLocalStorage) ?? '[]');
      // Buscar si el producto ya existe en el carrito
-    let index = productoList.findIndex(p => p.prod_Id === producto.prod_Id);
+    let index = productoList.findIndex(p => p.idProducto === producto.idProducto);
     
     if (index !== -1) {
       // Si el producto ya existe, aumentar su cantidad

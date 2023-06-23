@@ -11,9 +11,9 @@
                             <div class="col-lg-5">
                                 <div class="me-lg-5">
                                     <div class="d-flex">
-                                        <img [ngSrc]="producto.prod_LinkDocumento" class="border rounded me-3" width="188" height="188" />
+                                        <img [ngSrc]="producto.linkDocumento" class="border rounded me-3" width="188" height="188" />
                                         <div class="">
-                                            <a href="#" class="nav-link">{{producto.prod_Nombre}}</a>
+                                            <a href="#" class="nav-link">{{producto.nombre}}</a>
                                             <p class="text-muted">Yellow, Jeans</p>
                                         </div>
                                     </div>
@@ -23,14 +23,14 @@
                                 <div class="">
                                     <input type="number" [(ngModel)]="producto.cantidad">
                                     <select style=" width: 100px; " class="form-select me-4 ">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
                                 </div>
                                 <div class=" ">
-                                    <title class="h6 ">{{producto.prod_Precio}}</title> <br />
+                                    <title class="h6 ">{{producto.precio}}</title> <br />
                                     <small class="text-muted text-nowrap "> $460.00 / per item </small>
                                 </div>
                             </div>

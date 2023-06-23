@@ -22,7 +22,7 @@ export class ShoppingCartComponent implements OnInit {
   getCart() {
     this.productos = this.cartService.GetCart();
     this.subtotal = this.productos.reduce((total: number, producto: Productos) => {
-      return total + producto.prod_Precio;
+      return total + producto.precio;
     }, 0);
     console.log(this.productos);
     

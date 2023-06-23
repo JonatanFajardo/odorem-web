@@ -59,18 +59,3 @@ $theme-colors: (
   "dark":       $dark
 );
  
-
-@each $color, $value in $theme-colors {
-    .text-#{$color} {
-      color: $value;
-    }
-    .btn-#{$color}{
-        background-color:$value;
-    }
-    .bg-#{$color} {
-      background-color: $value !important; 
-    }
-    .border-#{$color} {
-      border-color: $value;
-    }
-  }
