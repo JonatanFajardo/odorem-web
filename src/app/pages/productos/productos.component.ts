@@ -69,8 +69,7 @@ export class ProductosComponent implements OnInit {
       }
     );
   }
-
-  filtradoPrecio() {}
+  
   pageChange($event: any) {
     this.page = $event;
     window.onload = () => {

@@ -7,17 +7,15 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { ProductosDetalleComponent } from './pages/productos/productos-detalle/productos-detalle.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: SigninComponent},
-  {path:'productos', component: ProductosComponent},
-  {path:'cart',component:ShoppingCartComponent},
-  {path:'productos-detalle/:id', component:ProductosDetalleComponent}
+  { path: '', component: ProductosComponent },
+  { path: 'login', component: SigninComponent },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'productos-detalle/:id', component: ProductosDetalleComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
- }
+export class AppRoutingModule {}
