@@ -77,7 +77,5 @@ export class ProductosComponent implements OnInit {
     };
   }
 
-  redirectToProductosDetalle(id: number) {
-    this.router.navigateByUrl('/productos-detalle/' + id);
-  }
+
 }

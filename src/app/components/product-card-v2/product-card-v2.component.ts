@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Productos } from 'src/app/models/Productos';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -8,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./product-card-v2.component.scss'],
 })
 export class ProductCardV2Component implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(private router: Router, private cartService: CartService) {}
 
   ngOnInit(): void {}
   @Input() imageUrl: string = '';
@@ -24,5 +25,9 @@ export class ProductCardV2Component implements OnInit {
 
   addToCart(producto: Productos) {
     this.cartService.addToCart(producto);
+  }
+  
+  redirectToProductosDetalle(id: number) {
+    this.router.navigateByUrl('/productos-detalle/' + id);
   }
 }

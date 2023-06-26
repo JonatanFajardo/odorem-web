@@ -6,8 +6,8 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Precio
-              </button>
+                              Precio
+                            </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
@@ -116,12 +116,9 @@
             *ngFor="
               let producto of productosFiltrados
                 | paginate
-                  : { id: 'some_id', itemsPerPage: 15, currentPage: page };
-              let i = index
-            "
-          >
+                  : { id: 'some_id', itemsPerPage: 9, currentPage: page };
+              let i = index">
             <app-product-card-v2
-              (click)="redirectToProductosDetalle(producto.idProducto)"
               [producto]="producto"
             ></app-product-card-v2>
           </div>
