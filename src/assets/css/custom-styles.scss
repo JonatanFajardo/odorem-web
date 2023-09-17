@@ -1,21 +1,6 @@
-// $primary-color: #127369;
-// $secondary-color: #2c3e50;
-// // Personalizaciones
-// $body-bg: #fff;
-// $body-color: #333;
-// body {
-//     background-color: $body-bg;
-//     color: $body-color;
-// }
 
 
-
-// .btn-secondary {
-//     background-color: $secondary-color;
-//     color: #fff;
-// }
-
-$blue:    #0d6efd;
+$blue:    #a87c36;
 $indigo:  #6610f2;
 $purple:  #6f42c1;
 $pink:    #d63384;
@@ -59,3 +44,19 @@ $theme-colors: (
   "dark":       $dark
 );
  
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  /* Puedes ajustar el tamaño, el color y otros estilos según tus preferencias */
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  /* Puedes ajustar el tamaño y otros estilos según tus preferencias */
+}

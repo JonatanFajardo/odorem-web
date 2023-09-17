@@ -1,1 +1,176 @@
-<p>home works!</p>
+<div id="productos">
+  <!-- CARROUSEL -->
+
+  <div
+    id="carouselExampleCaptions"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          class="img-fluid d-block w-100"
+          src="assets/images/slider/slider1.png"
+          alt="First slide"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          class="img-fluid d-block w-100"
+          src="assets/images/slider/slider2.jpg"
+          alt="First slide"
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- PRODUCTOS -->
+  <section class="py-5">
+    <div class="text-center py-4">
+      <h3>ALGUNOS PRODUCTOS</h3>
+    </div>
+    <!-- <h4 class="text-heading">ALGUNOS PRODUCTOS</h4> -->
+
+    <div class="px-5">
+      <div class="d-flex justify-content-end">
+        <a routerLink="productos" class="text-decoration-none text-end">
+          <h4>
+            Ver más Productos <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </h4>
+        </a>
+      </div>
+      <div class="row row-cols-1 row-cols-md-5 g-4">
+        <div
+          class="col"
+          *ngFor="let producto of ProductosSimilares; let i = index"
+        >
+          <app-product-card-v2 [producto]="producto"></app-product-card-v2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-6 d-flex align-items-center">
+        <div>
+          <h2>
+            ¡Cambie el tamaño de la ventana de visualización para ver cómo
+            funciona!
+          </h2>
+          <p>
+            Utiliza imágenes de fondo con superposición de texto e incluye una
+            ventana emergente animada (modal) que muestra la imagen en la que se
+            hizo clic.
+          </p>
+        </div>
+      </div>
+      <div class="col-6">
+        <iframe
+          width="100%"
+          height="305"
+          src="https://www.youtube.com/embed/H9hYpfN8HiM?si=-8S6wdqMJh7dTy2P"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- NUESTROS CLIENTES -->
+  <section
+    class="dt-sc-section-wrapper dt-sc-overlay"
+    style="
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      background-position: 50% 212.711px;
+    "
+    data-style="parallax"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="text-center pb-5">
+          <h3 class="fw-bolder">NUESTROS CLIENTES</h3>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <img
+              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-1_200x200.png?v=1613555268"
+            />
+          </div>
+          <div class="col">
+            <img
+              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-2_200x200.png?v=1613555268"
+            />
+          </div>
+          <div class="col">
+            <img
+              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-3_200x200.png?v=1613555268"
+            />
+          </div>
+          <div class="col">
+            <img
+              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-4_200x200.png?v=1613555268"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scentury">
+    <div class="image-cover text-white text-center">
+      <h5>MÁXIMA CONCENTRACIÓN DE FRAGANCIA</h5>
+      <h4></h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis
+        libero placerat cursus cursus.
+      </p>
+      <a href="" class="btn btn-primary text-white">Comprear Ahora</a>
+    </div>
+  </section>
+</div>

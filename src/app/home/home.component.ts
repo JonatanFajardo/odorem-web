@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Productos } from '../models/Productos';
+import { ProductosService } from '../services/productos/productos.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  ProductosSimilares : Productos[] = [];
+  obtenerProductosNovedades : Productos[] = [];
+
+  constructor(private productosServices: ProductosService) {
+    this.ObtenerProductosSimilares();
+   }
 
   ngOnInit(): void {
+  }
+
+  ObtenerProductosSimilares(){
+    let cantidad = 15;
+    this.productosServices.ObtenerProductosSimilares(cantidad).subscribe((datos) => {
+      this.ProductosSimilares = datos;
+      console.log(datos);
+
+    });
+  }
+
+  ObtenerProductosNovedades(){
+    let cantidad = 15;
+    this.productosServices.ObtenerProductosNovedades(cantidad).subscribe((datos) => {
+      this.obtenerProductosNovedades = datos;
+    });
   }
 
 }

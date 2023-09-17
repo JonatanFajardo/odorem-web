@@ -1,1 +1,17 @@
-/* No CSS *//*# sourceMappingURL=custom-styles.css.map */
+@charset "UTF-8";
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  /* Puedes ajustar el tamaño, el color y otros estilos según tus preferencias */
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  /* Puedes ajustar el tamaño y otros estilos según tus preferencias */
+}

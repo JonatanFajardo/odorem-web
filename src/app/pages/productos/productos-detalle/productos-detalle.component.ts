@@ -25,13 +25,13 @@ export class ProductosDetalleComponent implements OnInit {
   buscarProductos(id:number){
     this.productosServices.buscarProductos(id).subscribe((datos) => {
       this.productos = datos;
-      this.ObtenerProductosSimilares(this.productos.idTipoFragancia);
+      this.ObtenerProductosSimilaresPorFragancia(this.productos.idTipoFragancia);
     });
   }
 
-  ObtenerProductosSimilares(id:number){
+  ObtenerProductosSimilaresPorFragancia(id:number){
     let cantidad = 4;
-    this.productosServices.ObtenerProductosSimilares(id, cantidad).subscribe((datos) => {
+    this.productosServices.ObtenerProductosSimilaresPorFragancia(id, cantidad).subscribe((datos) => {
       this.ProductosSimilares = datos;
     });
   }

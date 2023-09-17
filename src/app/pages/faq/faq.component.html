@@ -1,0 +1,40 @@
+
+<!-- <app-nav>
+  
+</app-nav> -->
+<!-- <div ngbAccordion >
+	<div ngbAccordionItem *ngFor="let faq of Listadofaq" >
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>{{ faq.pregunta }}</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					{{faq.respuesta}}
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>
+ -->
+<section id="faq" class="bg-light">
+
+	<div class="container">
+		
+		<div class="accordion" id="accordionExample">
+			<div class="accordion-item mb-3" *ngFor="let faq of Listadofaq; let i = index;">
+			<h2 class="accordion-header" id="heading{{i}}">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
+				<h3 class="text-primary">{{ faq.pregunta }}</h3>
+				</button>
+			</h2>
+			<div [id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + i" [attr.data-bs-parent]="'#accordionExample'">
+				<div class="accordion-body">
+				{{ faq.respuesta }}
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</section>
+  

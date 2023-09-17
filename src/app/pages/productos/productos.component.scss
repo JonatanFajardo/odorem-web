@@ -35,3 +35,8 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.accordion-body{
+    overflow-y: scroll;
+    height: 500px;
+}

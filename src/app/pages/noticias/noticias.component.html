@@ -1,0 +1,44 @@
+<div class="container-full">
+  <div class="row px-3">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <div
+        class="card mb-3"
+        *ngFor="
+          let noticia of noticias
+            | paginate : { id: 'idPaginate', itemsPerPage: pageSize, currentPage: current, totalItems:total }
+        "
+      >
+        <img
+          class="card-img-top"
+          [src]="noticia.imagenUrl"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <div>
+            <span><i class="fa-light fa-user"></i> {{ noticia.autor }} </span>
+            <span><i class="fa-light fa-link"></i> {{ noticia.fuente }} </span>
+          </div>
+          <h5 class="card-title">{{ noticia.titulo }}</h5>
+          <p class="card-text">{{ noticia.contenido }}</p>
+          <p class="card-text">
+            <small class="text-muted"
+              >publicado el {{ noticia.fechaPublicacion | date : "yyyy-MM-dd" }}
+            </small>
+          </p>
+        </div>
+      </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+      <pagination-controls
+        id="idPaginate"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+        (pageChange)="current = $event"
+      >
+      </pagination-controls>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
