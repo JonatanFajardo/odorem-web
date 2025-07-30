@@ -65,112 +65,512 @@
   </div>
 
   <!-- PRODUCTOS -->
-  <section class="py-5">
-    <div class="text-center py-4">
-      <h3>ALGUNOS PRODUCTOS</h3>
+  <!-- HERO SECTION -->
+  <section class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center min-vh-50">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <span class="hero-badge">✨ Nuevas Fragancias 2024</span>
+            <h1 class="hero-title">Descubre Tu <span class="text-gradient">Esencia Perfecta</span></h1>
+            <p class="hero-description">
+              Explora nuestra exclusiva colección de perfumes de las mejores marcas del mundo. 
+              Cada fragancia cuenta una historia única que se convierte en parte de ti.
+            </p>
+            <div class="hero-buttons">
+              <a routerLink="/productos" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-shopping-bag me-2"></i>Explorar Colección
+              </a>
+              <a href="#video-section" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-play me-2"></i>Ver Video
+              </a>
+            </div>
+            <div class="hero-stats mt-4">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <h4 class="stat-number">500+</h4>
+                  <p class="stat-label">Fragancias</p>
+                </div>
+                <div class="col-4 text-center">
+                  <h4 class="stat-number">50+</h4>
+                  <p class="stat-label">Marcas</p>
+                </div>
+                <div class="col-4 text-center">
+                  <h4 class="stat-number">10k+</h4>
+                  <p class="stat-label">Clientes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image">
+            <img src="assets/images/2204_w018_n001_957b_p15_957.jpg" alt="Perfumes Hero" class="img-fluid rounded-4 shadow-lg">
+            <div class="floating-elements">
+              <div class="floating-card card-1">
+                <i class="fas fa-star text-warning"></i>
+                <span>Calidad Premium</span>
+              </div>
+              <div class="floating-card card-2">
+                <i class="fas fa-shipping-fast text-primary"></i>
+                <span>Envío Gratis</span>
+              </div>
+              <div class="floating-card card-3">
+                <i class="fas fa-award text-success"></i>
+                <span>Garantía 100%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- <h4 class="text-heading">ALGUNOS PRODUCTOS</h4> -->
+  </section>
 
-    <div class="px-5">
-      <div class="d-flex justify-content-end">
-        <a routerLink="productos" class="text-decoration-none text-end">
-          <h4>
-            Ver más Productos <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </h4>
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="why-choose-us py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">¿Por qué Odorem?</span>
+        <h2 class="section-title">La Mejor Experiencia en Fragancias</h2>
+        <p class="section-description">Descubre las razones por las que miles de clientes confían en nosotros</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center h-100">
+            <div class="feature-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h4>Calidad Premium</h4>
+            <p>Solo trabajamos con las mejores marcas y fragancias 100% originales</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center h-100">
+            <div class="feature-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div>
+            <h4>Envío Express</h4>
+            <p>Entrega rápida y segura en todo el país con seguimiento en tiempo real</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center h-100">
+            <div class="feature-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <h4>Asesoría Personal</h4>
+            <p>Nuestros expertos te ayudan a encontrar la fragancia perfecta para ti</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center h-100">
+            <div class="feature-icon">
+              <i class="fas fa-undo"></i>
+            </div>
+            <h4>Garantía Total</h4>
+            <p>30 días de garantía de satisfacción o te devolvemos tu dinero</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS SECTION -->
+  <section class="products-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">Nuestra Colección</span>
+        <h2 class="section-title">Productos Destacados</h2>
+        <p class="section-description">Descubre las fragancias más populares de nuestra colección</p>
+      </div>
+
+      <div class="px-3">
+        <div class="d-flex justify-content-end mb-4">
+          <a routerLink="productos" class="text-decoration-none text-end view-more-link">
+            <h4>
+              Ver más Productos <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </h4>
+          </a>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div
+            class="col"
+            *ngFor="let producto of ProductosSimilares; let i = index"
+          >
+            <app-product-card-v2 [producto]="producto"></app-product-card-v2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS SECTION -->
+  <section class="brands-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">Marcas Exclusivas</span>
+        <h2 class="section-title">Las Mejores Marcas del Mundo</h2>
+        <p class="section-description">Trabajamos con las marcas más prestigiosas de la industria</p>
+      </div>
+      <div class="brands-carousel">
+        <div class="row align-items-center">
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/chanel.png" alt="Chanel" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/dior.png" alt="Dior" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/versace.png" alt="Versace" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/armani.png" alt="Armani" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/calvin-klein.png" alt="Calvin Klein" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2 mb-4">
+            <div class="brand-item">
+              <img src="assets/images/brands/dolce-gabbana.png" alt="Dolce & Gabbana" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section id="video-section" class="video-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="video-content">
+            <span class="section-badge">Nuestro Proceso</span>
+            <h2 class="section-title">El Arte de la Perfumería</h2>
+            <p class="section-description">
+              Descubre cómo seleccionamos cada fragancia y el cuidado que ponemos 
+              en cada detalle para brindarte la mejor experiencia olfativa.
+            </p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check text-primary me-2"></i>Selección rigurosa de fragancias originales</li>
+              <li><i class="fas fa-check text-primary me-2"></i>Almacenamiento en condiciones óptimas</li>
+              <li><i class="fas fa-check text-primary me-2"></i>Empaque seguro y elegante</li>
+              <li><i class="fas fa-check text-primary me-2"></i>Entrega rápida y confiable</li>
+            </ul>
+            <a routerLink="/productos" class="btn btn-primary btn-lg mt-3">
+              <i class="fas fa-shopping-bag me-2"></i>Comprar Ahora
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="video-wrapper">
+            <iframe
+              width="100%"
+              height="350"
+              src="https://www.youtube.com/embed/H9hYpfN8HiM?si=-8S6wdqMJh7dTy2P"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="rounded-4 shadow-lg"
+            ></iframe>
+            <div class="video-overlay">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">Testimonios</span>
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <p class="section-description">Miles de clientes satisfechos avalan nuestra calidad y servicio</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">
+              "Increíble variedad y calidad. Mi fragancia favorita siempre está disponible 
+              y llega súper rápido. Definitivamente mi tienda de confianza."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/images/testimonials/user1.jpg" alt="María González" class="author-image">
+              <div class="author-info">
+                <h5>María González</h5>
+                <span>Cliente desde 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">
+              "El servicio al cliente es excepcional. Me ayudaron a encontrar el perfume 
+              perfecto para mi esposa. Llegó justo a tiempo para nuestro aniversario."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/images/testimonials/user2.jpg" alt="Carlos Rodríguez" class="author-image">
+              <div class="author-info">
+                <h5>Carlos Rodríguez</h5>
+                <span>Cliente desde 2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="testimonial-text">
+              "Precios competitivos y productos 100% originales. He probado otros sitios 
+              pero ninguno se compara con la confiabilidad de Odorem."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/images/testimonials/user3.jpg" alt="Ana Martínez" class="author-image">
+              <div class="author-info">
+                <h5>Ana Martínez</h5>
+                <span>Cliente desde 2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL OFFERS SECTION -->
+  <section class="special-offers py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="offer-image">
+            <img src="assets/images/TX6FMB5RGFC4VKII5DDTNHHA2E.jpg" alt="Oferta Especial" class="img-fluid rounded-4">
+            <div class="offer-badge">
+              <span class="discount">-30%</span>
+              <small>Descuento</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="offer-content">
+            <span class="section-badge text-danger">🔥 Oferta Limitada</span>
+            <h2 class="section-title">Grandes Descuentos en Fragancias Premium</h2>
+            <p class="section-description">
+              Aprovecha nuestra promoción especial con hasta 30% de descuento en 
+              una selección exclusiva de las mejores fragancias internacionales.
+            </p>
+            <div class="offer-features">
+              <div class="feature-item">
+                <i class="fas fa-gift text-primary me-3"></i>
+                <span>Regalo sorpresa en compras mayores a $100</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-truck text-primary me-3"></i>
+                <span>Envío gratis en toda la promoción</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-tags text-primary me-3"></i>
+                <span>Acumula puntos para futuras compras</span>
+              </div>
+            </div>
+            <div class="countdown-timer mt-4">
+              <h5>⏰ Promoción termina en:</h5>
+              <div class="timer-display">
+                <div class="time-unit">
+                  <span class="number">05</span>
+                  <small>Días</small>
+                </div>
+                <div class="time-unit">
+                  <span class="number">12</span>
+                  <small>Horas</small>
+                </div>
+                <div class="time-unit">
+                  <span class="number">30</span>
+                  <small>Min</small>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/productos" class="btn btn-danger btn-lg mt-4">
+              <i class="fas fa-fire me-2"></i>Ver Ofertas Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- STATS SECTION -->
+  <section class="stats-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-badge">Nuestros Números</span>
+        <h2 class="section-title">Confían en Nosotros</h2>
+        <p class="section-description">Cifras que demuestran nuestro compromiso con la excelencia</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="stat-number">15,000+</h3>
+            <p class="stat-label">Clientes Satisfechos</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <h3 class="stat-number">50,000+</h3>
+            <p class="stat-label">Productos Vendidos</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3 class="stat-number">100+</h3>
+            <p class="stat-label">Ciudades Atendidas</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="stat-card text-center">
+            <div class="stat-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3 class="stat-number">4.9</h3>
+            <p class="stat-label">Calificación Promedio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section id="scentury" class="cta-section">
+    <div class="image-cover text-white text-center">
+      <div class="cta-content">
+        <span class="cta-badge">✨ Experiencia Premium</span>
+        <h2 class="cta-title">Máxima Concentración de Fragancia</h2>
+        <p class="cta-description text-white">
+          Descubre la diferencia de las fragancias de alta concentración. 
+          Cada gota es una experiencia sensorial única que perdura todo el día.
+        </p>
+        <div class="cta-features">
+          <div class="feature-item">
+            <i class="fas fa-leaf me-2"></i>
+            <span>Ingredientes Naturales</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-clock me-2"></i>
+            <span>Duración de 12+ Horas</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-certificate me-2"></i>
+            <span>Certificación Internacional</span>
+          </div>
+        </div>
+        <a routerLink="/productos" class="btn btn-light btn-lg mt-4">
+          <i class="fas fa-shopping-bag me-2"></i>Comprar Ahora
         </a>
       </div>
-      <div class="row row-cols-1 row-cols-md-5 g-4">
-        <div
-          class="col"
-          *ngFor="let producto of ProductosSimilares; let i = index"
-        >
-          <app-product-card-v2 [producto]="producto"></app-product-card-v2>
-        </div>
-      </div>
     </div>
   </section>
 
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-6 d-flex align-items-center">
-        <div>
-          <h2>
-            ¡Cambie el tamaño de la ventana de visualización para ver cómo
-            funciona!
-          </h2>
-          <p>
-            Utiliza imágenes de fondo con superposición de texto e incluye una
-            ventana emergente animada (modal) que muestra la imagen en la que se
-            hizo clic.
-          </p>
-        </div>
-      </div>
-      <div class="col-6">
-        <iframe
-          width="100%"
-          height="305"
-          src="https://www.youtube.com/embed/H9hYpfN8HiM?si=-8S6wdqMJh7dTy2P"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </div>
-  <!-- NUESTROS CLIENTES -->
-  <section
-    class="dt-sc-section-wrapper dt-sc-overlay"
-    style="
-      margin-top: 0px;
-      margin-bottom: 0px;
-      padding-top: 100px;
-      padding-bottom: 100px;
-      background-position: 50% 212.711px;
-    "
-    data-style="parallax"
-  >
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter-section py-5">
     <div class="container">
-      <div class="row">
-        <div class="text-center pb-5">
-          <h3 class="fw-bolder">NUESTROS CLIENTES</h3>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <img
-              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-1_200x200.png?v=1613555268"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-2_200x200.png?v=1613555268"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-3_200x200.png?v=1613555268"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="//cdn.shopify.com/s/files/1/0478/6759/2864/files/icon-4_200x200.png?v=1613555268"
-            />
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="newsletter-content">
+            <div class="newsletter-icon mb-4">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h2 class="newsletter-title">Mantente al Día con las Últimas Tendencias</h2>
+            <p class="newsletter-description">
+              Suscríbete a nuestro newsletter y recibe ofertas exclusivas, novedades 
+              de productos y consejos de expertos en perfumería.
+            </p>
+            <div class="newsletter-form mt-4">
+              <div class="input-group">
+                <input 
+                  type="email" 
+                  class="form-control form-control-lg" 
+                  placeholder="Ingresa tu email"
+                  aria-label="Email"
+                >
+                <button class="btn btn-primary btn-lg" type="button">
+                  <i class="fas fa-paper-plane me-2"></i>Suscribirse
+                </button>
+              </div>
+            </div>
+            <div class="newsletter-benefits mt-4">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="benefit-item">
+                    <i class="fas fa-gift text-primary"></i>
+                    <span>Ofertas Exclusivas</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="benefit-item">
+                    <i class="fas fa-bell text-primary"></i>
+                    <span>Nuevos Productos</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="benefit-item">
+                    <i class="fas fa-user-graduate text-primary"></i>
+                    <span>Tips de Expertos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="newsletter-disclaimer mt-3">
+              <small class="text-muted">
+                No enviamos spam. Puedes darte de baja en cualquier momento.
+              </small>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="scentury">
-    <div class="image-cover text-white text-center">
-      <h5>MÁXIMA CONCENTRACIÓN DE FRAGANCIA</h5>
-      <h4></h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis
-        libero placerat cursus cursus.
-      </p>
-      <a href="" class="btn btn-primary text-white">Comprar Ahora</a>
     </div>
   </section>
 </div>

@@ -1,8 +1,232 @@
-#app-nav{
-    background-image: "assets/nav-1.jpg";
-    max-height: 35px;
-    width: 100%;
-    background: #1f1f1f;
-    opacity:0.8;
+#app-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #015958 !important;
+    transition: all 0.3s ease;
     
+    &:hover {
+      color: #20c997 !important;
+      transform: scale(1.05);
+    }
+  }
+  
+  .navbar-nav {
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: #2c2c2c !important;
+      margin: 0 15px;
+      padding: 10px 0 !important;
+      position: relative;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #015958 0%, #20c997 100%);
+        transition: width 0.3s ease;
+      }
+      
+      &:hover {
+        color: #015958 !important;
+        
+        &::before {
+          width: 100%;
+        }
+      }
+      
+      &.active {
+        color: #015958 !important;
+        
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .navbar-toggler {
+    border: none;
+    padding: 8px 12px;
+    background: rgba(1, 89, 88, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(1, 89, 88, 0.25);
+    }
+    
+    &:hover {
+      background: rgba(1, 89, 88, 0.2);
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23015958' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+  
+  // Search form styling
+  .d-flex {
+    .form-control {
+      border-radius: 25px;
+      border: 2px solid #e9ecef;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        border-color: #015958;
+        box-shadow: 0 0 0 0.2rem rgba(1, 89, 88, 0.25);
+      }
+    }
+    
+    .btn-outline-success {
+      border-radius: 25px;
+      border: 2px solid #015958;
+      color: #015958;
+      margin-left: 10px;
+      padding: 8px 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #015958;
+        border-color: #015958;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(1, 89, 88, 0.3);
+      }
+    }
+  }
+  
+  // Cart and user icons
+  .nav-link {
+    &.cart-link,
+    &.user-link {
+      position: relative;
+      
+      i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      
+      &:hover i {
+        transform: scale(1.1);
+        color: #015958;
+      }
+      
+      // Cart badge
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        background: linear-gradient(135deg, #015958 0%, #20c997 100%);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        min-width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+        line-height: 16px;
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+}
+
+// Dropdown improvements
+.dropdown-menu {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 15px 0;
+  margin-top: 10px;
+  
+  .dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #2c2c2c;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(1, 89, 88, 0.1);
+      color: #015958;
+      transform: translateX(5px);
+    }
+  }
+  
+  .dropdown-divider {
+    margin: 10px 0;
+    border-color: rgba(1, 89, 88, 0.1);
+  }
+}
+
+// Pulse animation for cart badge
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  #app-nav {
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+    
+    .navbar-nav {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(1, 89, 88, 0.1);
+      
+      .nav-link {
+        margin: 5px 0;
+        text-align: center;
+        
+        &::before {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    
+    .d-flex {
+      margin-top: 20px;
+      justify-content: center;
+      
+      .form-control {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
