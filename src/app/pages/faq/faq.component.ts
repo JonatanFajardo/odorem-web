@@ -18,7 +18,6 @@ export class FaqComponent implements OnInit {
   ObtenerFaq() {
     this.faqService.ObtenerFaq().subscribe((data: FAQDto[]) => {
       this.Listadofaq = data;
-      console.log(data);
       
     });
   }

@@ -39,4 +39,9 @@ export class ProductosDetalleComponent implements OnInit {
   redirectToProductosDetalle(id: number) {
     this.router.navigateByUrl('/productos-detalle/' + id);
   }
+
+  onImageError(event: any) {
+    // Remover el event listener para evitar bucle infinito
+    event.target.onerror = null;
+  }
 }

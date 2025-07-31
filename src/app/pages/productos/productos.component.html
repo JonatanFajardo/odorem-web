@@ -175,10 +175,20 @@
               </select>
             </div>
             <div class="view-toggle">
-              <button class="btn btn-view" title="Vista Lista">
+              <button 
+                class="btn btn-view" 
+                [class.active]="vistaActual === 'list'"
+                title="Vista Lista"
+                (click)="cambiarVista('list')"
+              >
                 <i class="fas fa-list"></i>
               </button>
-              <button class="btn btn-view active" title="Vista Cuadrícula">
+              <button 
+                class="btn btn-view" 
+                [class.active]="vistaActual === 'grid'"
+                title="Vista Cuadrícula"
+                (click)="cambiarVista('grid')"
+              >
                 <i class="fas fa-th-large"></i>
               </button>
             </div>
@@ -186,8 +196,9 @@
         </div>
 
         <!-- PRODUCTS GRID -->
-        <div class="products-grid">
-          <div class="row g-4">
+        <div class="products-grid" [ngClass]="'view-' + vistaActual">
+          <!-- Vista de Cuadrícula -->
+          <div class="row g-4" *ngIf="vistaActual === 'grid'">
             <div 
               class="col-lg-4 col-md-6 col-sm-6" 
               *ngFor="let producto of productosFiltrados | paginate: { 
@@ -197,6 +208,54 @@
               }; let i = index"
             >
               <app-product-card-v2 [producto]="producto"></app-product-card-v2>
+            </div>
+          </div>
+
+          <!-- Vista de Lista -->
+          <div class="products-list" *ngIf="vistaActual === 'list'">
+            <div 
+              class="product-list-item"
+              *ngFor="let producto of productosFiltrados | paginate: { 
+                id: 'some_id', 
+                itemsPerPage: 12, 
+                currentPage: page 
+              }; let i = index"
+            >
+              <div class="product-image" (click)="redirectToProductosDetalle(producto.idProducto)">
+                <img [src]="producto.linkDocumento" [alt]="producto.nombre" class="img-fluid">
+              </div>
+              <div class="product-info">
+                <div class="product-header">
+                  <h5 class="product-title" (click)="redirectToProductosDetalle(producto.idProducto)">{{ producto.nombre }}</h5>
+                  <span class="product-brand">{{ producto.marca }}</span>
+                </div>
+                <p class="product-description">{{ producto.description }}</p>
+                <div class="product-details">
+                  <span class="product-category">
+                    <i class="fas fa-tag me-1"></i>{{ producto.categoria }}
+                  </span>
+                  <span class="product-size" *ngIf="producto.medida">
+                    <i class="fas fa-ruler me-1"></i>{{ producto.medida }}
+                  </span>
+                </div>
+              </div>
+              <div class="product-actions">
+                <div class="product-price">
+                  <span class="price">L. {{ producto.precio | number:'1.2-2' }}</span>
+                </div>
+                <div class="action-buttons">
+                  <button 
+                    class="btn btn-outline-primary btn-sm" 
+                    title="Ver detalles"
+                    (click)="redirectToProductosDetalle(producto.idProducto)"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-primary btn-sm" title="Agregar al carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -561,6 +561,160 @@
       margin-bottom: 40px;
     }
     
+    // Vista de Lista
+    &.view-list {
+      .products-list {
+        .product-list-item {
+          display: flex;
+          align-items: center;
+          background: #fff;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          margin-bottom: 20px;
+          padding: 20px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+          }
+          
+          .product-image {
+            flex: 0 0 120px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              transform: scale(1.05);
+            }
+            
+            img {
+              width: 100%;
+              height: 120px;
+              object-fit: cover;
+              border-radius: 10px;
+            }
+          }
+          
+          .product-info {
+            flex: 1;
+            padding-right: 20px;
+            
+            .product-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              margin-bottom: 10px;
+              
+              .product-title {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: #2c2c2c;
+                margin: 0;
+                line-height: 1.3;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                
+                &:hover {
+                  color: #015958;
+                }
+              }
+              
+              .product-brand {
+                background: linear-gradient(135deg, #015958 0%, #20c997 100%);
+                color: #fff;
+                padding: 4px 12px;
+                border-radius: 15px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                white-space: nowrap;
+              }
+            }
+            
+            .product-description {
+              color: #666;
+              font-size: 0.95rem;
+              line-height: 1.5;
+              margin-bottom: 15px;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+            
+            .product-details {
+              display: flex;
+              gap: 20px;
+              
+              .product-category,
+              .product-size {
+                display: flex;
+                align-items: center;
+                color: #666;
+                font-size: 0.85rem;
+                
+                i {
+                  color: #015958;
+                  margin-right: 5px;
+                }
+              }
+            }
+          }
+          
+          .product-actions {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            
+            .product-price {
+              .price {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #015958;
+              }
+            }
+            
+            .action-buttons {
+              display: flex;
+              gap: 8px;
+              
+              .btn {
+                border-radius: 8px;
+                padding: 8px 12px;
+                transition: all 0.3s ease;
+                
+                &.btn-outline-primary {
+                  border-color: #e9ecef;
+                  color: #666;
+                  
+                  &:hover {
+                    background: #015958;
+                    border-color: #015958;
+                    color: #fff;
+                  }
+                }
+                
+                &.btn-primary {
+                  background: linear-gradient(135deg, #015958 0%, #20c997 100%);
+                  border: none;
+                  
+                  &:hover {
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba(1, 89, 88, 0.3);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    
     // No products state
     .no-products {
       text-align: center;
@@ -833,6 +987,60 @@
       .quick-filters {
         .filter-chip {
           min-width: 100%;
+        }
+      }
+    }
+    
+    // Vista de lista responsive
+    .products-grid.view-list {
+      .products-list {
+        .product-list-item {
+          flex-direction: column;
+          text-align: center;
+          padding: 15px;
+          
+          .product-image {
+            flex: none;
+            margin-right: 0;
+            margin-bottom: 15px;
+            
+            img {
+              width: 80px;
+              height: 80px;
+            }
+          }
+          
+          .product-info {
+            padding-right: 0;
+            margin-bottom: 15px;
+            
+            .product-header {
+              flex-direction: column;
+              gap: 8px;
+              align-items: center;
+              
+              .product-title {
+                font-size: 1.1rem;
+              }
+            }
+            
+            .product-details {
+              justify-content: center;
+              flex-wrap: wrap;
+              gap: 10px;
+            }
+          }
+          
+          .product-actions {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            
+            .product-price .price {
+              font-size: 1.2rem;
+            }
+          }
         }
       }
     }

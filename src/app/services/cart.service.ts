@@ -34,7 +34,6 @@ export class CartService {
 
     if ( storageProduct?.cantidad == null || storageProduct?.cantidad <= 1){
       let index = productoList.findIndex(p => p.idProducto === producto.idProducto);;
-      console.log(index);
       
       productoList.splice(index, 1);
     }

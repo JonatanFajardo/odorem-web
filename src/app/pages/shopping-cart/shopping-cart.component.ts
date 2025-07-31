@@ -24,7 +24,6 @@ export class ShoppingCartComponent implements OnInit {
     this.subtotal = this.productos.reduce((total: number, producto: Productos) => {
       return total + producto.precio;
     }, 0);
-    console.log(this.productos);
     
   }
 

@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     let cantidad = 15;
     this.productosServices.ObtenerProductosSimilares(cantidad).subscribe((datos) => {
       this.ProductosSimilares = datos;
-      console.log(datos);
 
     });
   }

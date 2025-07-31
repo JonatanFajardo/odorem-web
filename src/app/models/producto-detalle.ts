@@ -62,26 +62,26 @@ export class ProductoDetalleDto implements IProductoDetalleDto {
       this.nombreGenero = data.nombreGenero;
       this.categoria = data.categoria;
       this.tipoFragancia = data.tipoFragancia;
+    } else {
+      this.id = 0;
+      this.linkDocumento = '';
+      this.nombreDocumento = '';
+      this.nombre = '';
+      this.description = '';
+      this.precioBruto = 0;
+      this.precioNeto = 0;
+      this.idMarca = 0;
+      this.sexo = '';
+      this.anioLanzamiento = 0;
+      this.idGenero = 0;
+      this.idTipoFragancia = 0;
+      this.idCategoria = 0;
+      this.notasPrincipales = '';
+      this.marca = '';
+      this.precio = 0;
+      this.nombreGenero = '';
+      this.categoria = '';
+      this.tipoFragancia = '';
     }
-    
-    this.id = 0;
-    this.linkDocumento = '';
-    this.nombreDocumento = '';
-    this.nombre = '';
-    this.description = '';
-    this.precioBruto = 0;
-    this.precioNeto = 0;
-    this.idMarca = 0;
-    this.sexo = '';
-    this.anioLanzamiento = 0;
-    this.idGenero = 0;
-    this.idTipoFragancia = 0;
-    this.idCategoria = 0;
-    this.notasPrincipales = '';
-    this.marca = '';
-    this.precio = 0;
-    this.nombreGenero = '';
-    this.categoria = '';
-    this.tipoFragancia = '';
   }
 }

@@ -18,6 +18,7 @@ export class ProductosComponent implements OnInit {
   marcas: any;
   productosFiltrados: Productos[] = [];
   terminoBusqueda: string = '';
+  vistaActual: 'grid' | 'list' = 'grid';
 
   constructor(
     private router: Router,
@@ -104,6 +105,14 @@ export class ProductosComponent implements OnInit {
   limpiarBusqueda() {
     this.terminoBusqueda = '';
     this.filtrarProductos();
+  }
+
+  cambiarVista(vista: 'grid' | 'list') {
+    this.vistaActual = vista;
+  }
+
+  redirectToProductosDetalle(id: number) {
+    this.router.navigateByUrl('/productos-detalle/' + id);
   }
 
 }
