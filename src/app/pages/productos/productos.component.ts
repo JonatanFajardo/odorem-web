@@ -17,6 +17,7 @@ export class ProductosComponent implements OnInit {
   public page!: number;
   marcas: any;
   productosFiltrados: Productos[] = [];
+  terminoBusqueda: string = '';
 
   constructor(
     private router: Router,
@@ -39,35 +40,39 @@ export class ProductosComponent implements OnInit {
 
   ObtenerMarcas() {
     this.marcasService.ObtenerMarcas().subscribe((datos) => {
-      this.marcas = datos;
+      // Agregar la propiedad 'checked' a cada marca para los checkboxes
+      this.marcas = datos.map((marca: any) => ({
+        ...marca,
+        checked: false
+      }));
     });
   }
   
   filtrarProductos() {
-    this.productosFiltrados = this.productos.filter(
-      (producto: any) =>
-        producto.Precio >= this.precioMinimo &&
-        producto.Precio <= this.precioMaximo
-    );
+    let productosFiltrados = [...this.productos];
 
-    // Verifica si alguna marca está seleccionada
-    const hayMarcasSeleccionadas = this.marcas.some(
+    // Filtro por término de búsqueda
+    if (this.terminoBusqueda && this.terminoBusqueda.trim() !== '') {
+      const termino = this.terminoBusqueda.toLowerCase().trim();
+      productosFiltrados = productosFiltrados.filter((producto: any) =>
+        producto.nombre.toLowerCase().includes(termino)
+      );
+    }
+
+    // Filtro por marcas seleccionadas
+    const hayMarcasSeleccionadas = this.marcas?.some(
       (marca: any) => marca.checked
     );
 
-    // Filtra los productos en base a las marcas seleccionadas
-    this.productosFiltrados = this.productosFiltrados.filter(
-      (producto: any) => {
-        // Si no hay marcas seleccionadas, no filtra ningún producto
-        if (!hayMarcasSeleccionadas) {
-          return true;
-        }
-        // Si hay marcas seleccionadas, filtra solo los productos que corresponden a esas marcas
+    if (hayMarcasSeleccionadas) {
+      productosFiltrados = productosFiltrados.filter((producto: any) => {
         return this.marcas.some(
-          (marca: any) => marca.checked && producto.Id === marca.Id
+          (marca: any) => marca.checked && producto.marc_Id === marca.marc_Id
         );
-      }
-    );
+      });
+    }
+
+    this.productosFiltrados = productosFiltrados;
   }
   
   pageChange($event: any) {
@@ -77,5 +82,28 @@ export class ProductosComponent implements OnInit {
     };
   }
 
+  limpiarFiltros() {
+    // Reset price filters
+    this.precioMinimo = 0;
+    this.precioMaximo = 10000;
+    
+    // Reset search term
+    this.terminoBusqueda = '';
+    
+    // Reset brand checkboxes
+    if (this.marcas) {
+      this.marcas.forEach((marca: any) => {
+        marca.checked = false;
+      });
+    }
+    
+    // Reset filtered products to show all products
+    this.productosFiltrados = this.productos;
+  }
+
+  limpiarBusqueda() {
+    this.terminoBusqueda = '';
+    this.filtrarProductos();
+  }
 
 }

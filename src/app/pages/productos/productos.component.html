@@ -1,145 +1,249 @@
-<section class="section-products py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Precio
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="range">
-                                    <input type="range" class="form-range" id="customRange1" />
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-6">
-                                        <p class="mb-0">Min</p>
-                                        <div class="form-outline">
-                                            <input type="number" id="typeNumber" class="form-control" [(ngModel)]="precioMinimo" />
-                                            <label class="form-label" for="typeNumber">L. {{ precioMinimo }}</label
-                      >
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <p class="mb-0">Max</p>
-                    <div class="form-outline">
-                      <input
-                        type="number"
-                        id="typeNumber"
-                        class="form-control"
-                        [(ngModel)]="precioMaximo"
-                      />
-                      <label class="form-label" for="typeNumber"
-                        >L. {{ precioMaximo }}</label
-                      >
-                    </div>
-                  </div>
+<!-- HERO SECTION -->
+<section class="products-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <span class="hero-badge">🛍️ Nuestra Colección</span>
+          <h1 class="hero-title">Encuentra Tu <span class="text-gradient">Fragancia Perfecta</span></h1>
+          <p class="hero-description">
+            Explora más de 500 fragancias de las mejores marcas del mundo. 
+            Usa nuestros filtros avanzados para encontrar exactamente lo que buscas.
+          </p>
+          <div class="hero-stats">
+            <div class="row">
+              <div class="col-4 text-center">
+                <h4 class="stat-number">{{ productosFiltrados.length }}</h4>
+                <p class="stat-label">Productos</p>
+              </div>
+              <div class="col-4 text-center">
+                <h4 class="stat-number">{{ marcas.length }}</h4>
+                <p class="stat-label">Marcas</p>
+              </div>
+              <div class="col-4 text-center">
+                <h4 class="stat-number">100%</h4>
+                <p class="stat-label">Originales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-image">
+          <img src="assets/images/1416.jpg" alt="Perfumes Collection" class="img-fluid rounded-4 shadow-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section py-5 px-4">
+  <div class="">
+    <div class="row">
+      <!-- SIDEBAR FILTERS -->
+      <div class="col-lg-3 col-md-4">
+        <div class="filters-sidebar">
+          <div class="filters-header">
+            <h4><i class="fas fa-filter me-2"></i>Filtros</h4>
+            <button class="btn btn-sm btn-outline-primary" (click)="limpiarFiltros()">
+              <i class="fas fa-refresh me-1"></i>Limpiar
+            </button>
+          </div>
+
+          <!-- PRICE FILTER -->
+          <div class="filter-card">
+            <h5 class="filter-title">
+              <i class="fas fa-dollar-sign me-2"></i>Rango de Precio
+            </h5>
+            <div class="price-range">
+              <div class="range-slider">
+                <input type="range" class="form-range modern-range" id="priceRange" min="0" max="5000" />
+              </div>
+              <div class="price-inputs">
+                <div class="input-group">
+                  <span class="input-group-text">L.</span>
+                  <input type="number" class="form-control" [(ngModel)]="precioMinimo" placeholder="Mín">
                 </div>
-                <button
-                  type="button"
-                  class="btn btn-white w-100 border border-secondary"
-                  (click)="filtrarProductos()"
-                >
-                  apply
-                </button>
+                <span class="price-separator">-</span>
+                <div class="input-group">
+                  <span class="input-group-text">L.</span>
+                  <input type="number" class="form-control" [(ngModel)]="precioMaximo" placeholder="Máx">
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm w-100 mt-3" (click)="filtrarProductos()">
+                <i class="fas fa-search me-1"></i>Aplicar Filtro
+              </button>
+            </div>
+          </div>
+
+          <!-- BRANDS FILTER -->
+          <div class="filter-card">
+            <h5 class="filter-title">
+              <i class="fas fa-tags me-2"></i>Marcas
+              <span class="filter-count">({{ marcas.length }})</span>
+            </h5>
+            <div class="brands-filter">
+              <div class="search-brands">
+                <div class="input-group input-group-sm">
+                  <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Buscar marca..." #searchBrand>
+                </div>
+              </div>
+              <div class="brands-list">
+                <div class="brand-item" *ngFor="let marca of marcas">
+                  <label class="modern-checkbox">
+                    <input 
+                      type="checkbox" 
+                      [(ngModel)]="marca.checked" 
+                      (change)="filtrarProductos()"
+                    >
+                    <span class="checkmark"></span>
+                    <span class="brand-name">{{ marca.nombre }}</span>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Marcas
+          <!-- QUICK FILTERS -->
+          <div class="filter-card">
+            <h5 class="filter-title">
+              <i class="fas fa-star me-2"></i>Filtros Rápidos
+            </h5>
+            <div class="quick-filters">
+              <button class="filter-chip">
+                <i class="fas fa-fire me-1"></i>Más Vendidos
               </button>
-            </h2>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse show"
-              aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <div *ngFor="let marca of marcas">
-                  <div class="d-flex justify-content-between">
-                    <label>
-                      <input
-                        type="checkbox"
-                        [(ngModel)]="marca.checked"
-                        (change)="filtrarProductos()"
-                      />
-                      {{ marca.nombre }}
-                    </label>
-                                            <span class="justify-content-end">{{marca.cantidad}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-                    <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
-                        <strong class="d-block py-2">{{ productosFiltrados.length }} Artículos encontrados</strong
-          >
-          <div class="ms-auto">
-            <select class="form-select d-inline-block w-auto border pt-1">
-              <option value="0">Best match</option>
-              <option value="1">Recommended</option>
-              <option value="2">High rated</option>
-              <option value="3">Randomly</option>
-            </select>
-            <div class="btn-group shadow-0 border">
-              <a href="#" class="btn btn-light" title="List view">
-                <i class="fa fa-bars fa-lg"></i>
-              </a>
-              <a href="#" class="btn btn-light active" title="Grid view">
-                <i class="fa fa-th fa-lg"></i>
-              </a>
+              <button class="filter-chip">
+                <i class="fas fa-tag me-1"></i>En Oferta
+              </button>
+              <button class="filter-chip">
+                <i class="fas fa-star me-1"></i>Mejor Valorados
+              </button>
+              <button class="filter-chip">
+                <i class="fas fa-plus me-1"></i>Nuevos
+              </button>
             </div>
           </div>
-        </header>
+        </div>
+      </div>
 
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
-          <div
-            class="col pointer"
-            *ngFor="
-              let producto of productosFiltrados
-                | paginate
-                  : { id: 'some_id', itemsPerPage: 9, currentPage: page };
-              let i = index">
-            <app-product-card-v2
-              [producto]="producto"
-            ></app-product-card-v2>
+      <!-- PRODUCTS GRID -->
+      <div class="col-lg-9 col-md-8">
+        <!-- PRODUCTS HEADER -->
+        <div class="products-header">
+          <div class="results-info">
+            <h3>Productos Encontrados</h3>
+            <p>{{ productosFiltrados.length }} productos disponibles</p>
+          </div>
+          
+          <!-- SEARCH BAR -->
+          <div class="search-container">
+            <div class="input-group search-input">
+              <span class="input-group-text">
+                <i class="fas fa-search"></i>
+              </span>
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Buscar productos por nombre..."
+                [(ngModel)]="terminoBusqueda"
+                (input)="filtrarProductos()"
+              >
+              <button 
+                class="btn btn-outline-secondary" 
+                type="button"
+                *ngIf="terminoBusqueda"
+                (click)="limpiarBusqueda()"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="products-controls">
+            <div class="sort-dropdown">
+              <select class="form-select modern-select">
+                <option value="0">Más Relevantes</option>
+                <option value="1">Precio: Menor a Mayor</option>
+                <option value="2">Precio: Mayor a Menor</option>
+                <option value="3">Más Populares</option>
+                <option value="4">Mejor Valorados</option>
+                <option value="5">Más Recientes</option>
+              </select>
+            </div>
+            <div class="view-toggle">
+              <button class="btn btn-view" title="Vista Lista">
+                <i class="fas fa-list"></i>
+              </button>
+              <button class="btn btn-view active" title="Vista Cuadrícula">
+                <i class="fas fa-th-large"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid">
+          <div class="row g-4">
+            <div 
+              class="col-lg-4 col-md-6 col-sm-6" 
+              *ngFor="let producto of productosFiltrados | paginate: { 
+                id: 'some_id', 
+                itemsPerPage: 12, 
+                currentPage: page 
+              }; let i = index"
+            >
+              <app-product-card-v2 [producto]="producto"></app-product-card-v2>
+            </div>
           </div>
 
+          <!-- NO PRODUCTS FOUND -->
+          <div class="no-products" *ngIf="productosFiltrados.length === 0">
+            <div class="text-center py-5">
+              <i class="fas fa-search fa-3x text-muted mb-3"></i>
+              <h4>No se encontraron productos</h4>
+              <p class="text-muted">Intenta ajustar tus filtros para ver más resultados</p>
+              <button class="btn btn-primary" (click)="limpiarFiltros()">
+                <i class="fas fa-refresh me-2"></i>Limpiar Filtros
+              </button>
+            </div>
+          </div>
         </div>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-end">
-           
+
+        <!-- PAGINATION -->
+        <div class="products-pagination" *ngIf="productosFiltrados.length > 0">
+          <nav aria-label="Paginación de productos">
             <pagination-controls
-              class="pagination-controls"
               id="some_id"
               (pageChange)="pageChange($event)"
-              previousLabel="Previous"
-              nextLabel="Next"
-              screenReaderPaginationLabel="Pagination"
-              screenReaderPageLabel="page"
-              screenReaderCurrentLabel="You're on page"
-            >
-            </pagination-controls>
-          </ul>
-        </nav>
+              previousLabel="Anterior"
+              nextLabel="Siguiente"
+              screenReaderPaginationLabel="Paginación"
+              screenReaderPageLabel="página"
+              screenReaderCurrentLabel="Estás en la página"
+              class="modern-pagination"
+            ></pagination-controls>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SECTION -->
+<section class="featured-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge">Recomendado para ti</span>
+      <h2 class="section-title">También te puede interesar</h2>
+      <p class="section-description">Productos similares que otros clientes han comprado</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" *ngFor="let producto of productosFiltrados.slice(0, 4)">
+        <app-product-card-v2 [producto]="producto"></app-product-card-v2>
       </div>
     </div>
   </div>
